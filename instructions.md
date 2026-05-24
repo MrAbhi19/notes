@@ -56,3 +56,8 @@ srai x2, x1, 2     # x2 = x1 >> 2      (arithmetic right shift)
 lui x1, 20.      # x1 = 20 << 12
 auipc x2, 20.    # x2 = PC + (20 << 12)
 ```
+
+## J-type instruction
+```asm
+jal x1, 20      # x1 = PC + 4,  PC = PC + 20
+```
