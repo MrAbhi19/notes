@@ -36,3 +36,17 @@ lhu x5, 3(x2)       # Load unsigned halfword from address (x2 + 3)
 
 lw  x6, 0(x2)       # Load word from address (x2 + 0)
 ```
+
+## Immediate Arithmetic Instructions
+
+```asm
+addi x1, x0, 13    # x1 = x0 + 13
+andi x2, x1, 9     # x2 = x1 & 9
+ori x2, x1, 16     # x2 = x1 | 16
+xori x2, x1, 3     # x2 = x1 ^ 3
+slti x2, x1, 3     # x2 = 1 if x1 < 3  (signed)  
+sltiu x2, x1, 2    # x2 = 1 if x1 < 2  (unsigned)
+slli x2, x1, 1     # x2 = x1 << 1      (logical left shift)
+srli x2, x1, 2     # x2 = x1 >> 2      (logical right shift)
+srai x2, x1, 2     # x2 = x1 >> 2      (arithmetic right shift)
+```
