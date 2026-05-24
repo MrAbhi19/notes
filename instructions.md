@@ -50,3 +50,9 @@ slli x2, x1, 1     # x2 = x1 << 1      (logical left shift)
 srli x2, x1, 2     # x2 = x1 >> 2      (logical right shift)
 srai x2, x1, 2     # x2 = x1 >> 2      (arithmetic right shift)
 ```
+
+## U-type Instructions 
+```asm
+lui x1, 20.      # x1 = 20 << 12
+auipc x2, 20.    # x2 = PC + (20 << 12)
+```
