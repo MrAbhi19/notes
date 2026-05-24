@@ -66,3 +66,29 @@ auipc x2, 20    # x2 = PC + (20 << 12)
 ```asm
 jal x1, 20      # x1 = PC + 4,  PC = PC + 20
 ```
+
+## B-tyoe instructions 
+```asm
+beg x1, x2, 20   # if (x1 == x2): PC = PC + 20
+                   else: PC = PC + 4
+bne x1, x2, 20   # if (x1 =! x2): PC = PC + 20
+                   else: PC = PC + 4
+blt x1, x2, 20   # if (x1 < x2): PC = PC + 20
+                   else: PC = PC + 4 (signed)
+bge x1, x2, 20   # if (x1 >= c2): PC = PC + 20
+                   else: PC = PC + 4 (signed)
+bltu x1, x2, 20  # if (x1 < x2): PC = PC + 20
+                   else: PC = PC + 4 (unsigned)
+bgeu x1, x2, 20  # if (x1 >= c2): PC = PC + 20
+                   else: PC = PC + 4 (unsigned)
+```
+
+
+
+
+
+
+
+
+
+               else: PC = PC + 4 (signed)
