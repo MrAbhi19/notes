@@ -91,4 +91,4 @@ bgeu x1, x2, 20  # if (x1 >= c2): PC = PC + 20
 
 
 
-               else: PC = PC + 4 (signed)
+      
