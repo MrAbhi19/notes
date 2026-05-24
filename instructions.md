@@ -51,10 +51,14 @@ srli x2, x1, 2     # x2 = x1 >> 2      (logical right shift)
 srai x2, x1, 2     # x2 = x1 >> 2      (arithmetic right shift)
 ```
 
+## jump and link register 
+```asm
+jalr x1, 0(x2)     # x1 = PC + 4,  PC = PC + (x2 + 0)
+
 ## U-type Instructions 
 ```asm
-lui x1, 20.      # x1 = 20 << 12
-auipc x2, 20.    # x2 = PC + (20 << 12)
+lui x1, 20      # x1 = 20 << 12
+auipc x2, 20    # x2 = PC + (20 << 12)
 ```
 
 ## J-type instruction
