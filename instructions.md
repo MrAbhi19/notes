@@ -54,6 +54,7 @@ srai x2, x1, 2     # x2 = x1 >> 2      (arithmetic right shift)
 ## jump and link register 
 ```asm
 jalr x1, 0(x2)     # x1 = PC + 4,  PC = PC + (x2 + 0)
+```
 
 ## U-type Instructions 
 ```asm
