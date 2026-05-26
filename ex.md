@@ -83,3 +83,31 @@ one:
 add x3, x0, x2
 done:
 ```
+
+# Square if number with functions 
+```asm
+.text
+.globl main
+
+main:
+addi a0 x0 1
+jal ra square
+
+done:
+beq x0 x0 done
+
+square:
+addi t0 a0 0
+addi t1 x0 0 
+addi t2 a0 0
+
+loop:
+add t1 t1 t0
+addi t2 t2 -1 
+
+bne t2 x0 loop
+
+add a0 t1 x0
+
+jalr x0 0(ra)
+```
