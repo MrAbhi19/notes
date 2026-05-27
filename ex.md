@@ -111,3 +111,62 @@ add a0 t1 x0
 
 jalr x0 0(ra)
 ```
+
+# Sum of squares of first N natural numbers
+```asm
+.text
+.globl main
+
+main:
+    addi a0 x0 4
+    jal sum_sq
+
+done:
+    beq x0 x0 done
+
+
+sum_sq:
+    addi sp sp -16
+    sw ra 12(sp)
+    sw s0 8(sp)
+    sw s1 4(sp)
+    sw s2 0(sp)
+    
+    add s0 a0 x0  # number n 
+    addi s1 x0 0  # counter
+    add s2 x0 x0  # running sum
+    
+sm_loop:
+    addi s1 s1 1
+    add a0 s1 x0
+    jal sq
+    add s2 s2 a0
+    
+    bne s1 s0 sm_loop
+    
+    add a0 s2 x0
+    
+    lw ra 12(sp)
+    lw s0 8(sp)
+    lw s1 4(sp)
+    lw s2 0(sp)
+    addi sp sp 16
+    
+    jalr x0 ra 0
+
+    
+sq:
+    add t0 a0 x0
+    add t1 a0 x0
+    add t2 x0 x0
+    
+sq_loop:
+    add t2 t2 t1
+    addi t0 t0 -1
+    
+    bne t0 x0 sq_loop
+    
+    add a0 t2 x0
+    
+    jalr x0 ra 0
+```
