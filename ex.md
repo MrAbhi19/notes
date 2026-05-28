@@ -170,3 +170,37 @@ sq_loop:
     
     jalr x0 ra 0
 ```
+
+#Sum of numbers stored in memory 
+```asm
+.data
+array: .word 10, 20, 15, 35, 25, 7, 18
+N: .word 7
+
+.text
+.globl main
+
+main:
+la t0 array
+
+la t1 N
+lw t1 0(t1)
+
+addi t2 x0 0
+addi t3 x0 0
+
+loop:
+beq t3 t1 done
+
+lw t4 0(t0)
+
+add t2 t2 t4
+addi t0 t0 4
+
+addi t3 t3 1
+
+beq x0 x0 loop
+
+done:
+add a0 t2 x0
+```
