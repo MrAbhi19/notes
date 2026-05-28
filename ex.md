@@ -171,7 +171,7 @@ sq_loop:
     jalr x0 ra 0
 ```
 
-#Sum of numbers stored in memory 
+# Sum of numbers stored in memory 
 ```asm
 .data
 array: .word 10, 20, 15, 35, 25, 7, 18
@@ -203,4 +203,42 @@ beq x0 x0 loop
 
 done:
 add a0 t2 x0
+```
+
+# Reverting an array 
+```asm
+.data 
+array: .word 10 9 8 3 4 5 
+N: .word 6
+
+.text
+.globl main
+
+main:
+la t0 array
+la t1 N
+lw t1 0(t1)
+
+add t2 t0 x0  # left pointer
+
+addi t3 t1 -1
+slli t3 t3 2
+add t3 t0 t3  # right pointer 
+
+loop:
+bge t2 t3 done 
+
+lw t4 0(t2) # load left value 
+lw t5 0(t3) # load right value
+
+sw t5 0(t2) # store right value in left 
+sw t4 0(t3) # store left value in right
+
+addi t2 t2 4
+addi t3 t3 -4
+
+jal x0 loop
+
+done:
+beq x0 x0 done
 ```
